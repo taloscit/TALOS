@@ -3,18 +3,26 @@
 import React, { useState } from "react";
 import { CometCard } from "@/components/ui/comet-card";
 
-type EventCard = {
+type CardItem = {
   title: string;
   desc: string;
   tag?: string;
 };
 
-export function InfiniteCometCards({ items }: { items: EventCard[] }) {
+type Props = {
+  items: CardItem[];
+  direction?: "left" | "right";
+};
+
+export function InfiniteCometCards({
+  items,
+  direction = "left",
+}: Props) {
   const [paused, setPaused] = useState(false);
 
   return (
     <div
-      className="relative overflow-hidden py-20"
+      className="relative overflow-hidden py-10"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -26,23 +34,24 @@ export function InfiniteCometCards({ items }: { items: EventCard[] }) {
         className="flex w-max gap-8 px-8 animate-infinite-scroll"
         style={{
           animationPlayState: paused ? "paused" : "running",
+          animationDirection: direction === "right" ? "reverse" : "normal",
         }}
       >
-        {[...items, ...items].map((event, idx) => (
+        {[...items, ...items].map((item, idx) => (
           <CometCard key={idx}>
             <div className="w-[360px] rounded-2xl border border-white/10 bg-black/80 p-6 backdrop-blur-xl">
-              {event.tag && (
+              {item.tag && (
                 <span className="inline-block mb-4 rounded bg-red-600 px-3 py-1 text-xs font-semibold">
-                  {event.tag}
+                  {item.tag}
                 </span>
               )}
 
               <h3 className="text-xl font-bold text-white mb-2">
-                {event.title}
+                {item.title}
               </h3>
 
               <p className="text-sm text-white/60">
-                {event.desc}
+                {item.desc}
               </p>
             </div>
           </CometCard>
