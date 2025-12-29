@@ -30,3 +30,15 @@ body {
 a, button, [role="button"] {
   cursor: none; /* Ensure links and buttons also don't show default cursor */
 }
+@keyframes infinite-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-infinite-scroll {
+  animation: infinite-scroll 30s linear infinite;
+}
