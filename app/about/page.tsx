@@ -7,7 +7,7 @@ export default function AboutPage() {
         
         <div className='text-center'>
            <p className='text-2xl font-light leading-relaxed text-muted-foreground'>
-             <span className='text-primary font-bold'>TALOS 2025</span> is not just a technical symposium; it&apos;s a convergence of brilliant minds, innovative ideas, and cutting-edge technology.
+             <span className='text-primary font-bold'>TALOS 2026</span> is not just a technical symposium; it&apos;s a convergence of brilliant minds, innovative ideas, and cutting-edge technology.
            </p>
         </div>
 
