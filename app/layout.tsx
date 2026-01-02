@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Press_Start_2P, Orbitron, Wallpoet } from "next/font/google";
+import { Press_Start_2P, Orbitron, Wallpoet, Zen_Dots } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/_core/navbar/Navbar";
 import Footer from "@/components/_core/footer/Footer";
@@ -25,6 +25,12 @@ const wallpoet = Wallpoet({
   variable: "--font-wallpoet",
 });
 
+const zenDots = Zen_Dots({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-zen-dots",
+});
+
 export const metadata: Metadata = {
   title: "College Symposium 2025",
   description: "Official website for College Symposium 2025",
@@ -37,7 +43,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`min-h-screen flex flex-col ${pressStart2P.variable} ${orbitron.variable} ${wallpoet.variable}`}>
+      <body className={`min-h-screen flex flex-col ${pressStart2P.variable} ${orbitron.variable} ${wallpoet.variable} ${zenDots.variable}`}>
         <CustomCursor />
         <Ribbons
           baseThickness={15}

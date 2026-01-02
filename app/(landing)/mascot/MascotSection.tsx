@@ -4,6 +4,7 @@ import Image from "next/image";
 import logo from "./../../../app/taloslogo.png";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import ScrollFloat from "@/components/ui/ScrollFloat";
 
 export default function MascotSection() {
   const containerRef = useRef<HTMLElement>(null);
@@ -62,13 +63,45 @@ export default function MascotSection() {
                 TALOS
               </h2>
 
-              <p className="text-gray-300 font-medium zen-dots-regular leading-relaxed text-sm md:text-lg max-w-xl mx-auto md:mx-0">
-                <span className="text-white font-bold">TALOS</span> – <span className="text-red-500"> Towards
-                  Advance Level Of Science</span> is an annual occurrence conducted by the
-                Department of Artificial Intelligence and Data Science to showcase
-                the importance of the domain. A wave of fun and technical events
-                will be conducted throughout the day.
-              </p>
+              <div className="text-gray-300 font-medium zen-dots-regular leading-relaxed text-sm md:text-lg max-w-xl mx-auto md:mx-0 flex flex-wrap gap-1">
+                <ScrollFloat
+                  as="span"
+                  animationDuration={1}
+                  ease='back.inOut(2)'
+                  scrollStart='center bottom+=50%'
+                  scrollEnd='bottom bottom-=40%'
+                  stagger={0.03}
+                  containerClassName='inline-block'
+                  textClassName='!text-sm md:!text-lg text-white font-bold !leading-relaxed'
+                >
+                  TALOS
+                </ScrollFloat>
+                <span className="inline-block"> – </span>
+                <ScrollFloat
+                  as="span"
+                  animationDuration={1}
+                  ease='back.inOut(2)'
+                  scrollStart='center bottom+=50%'
+                  scrollEnd='bottom bottom-=40%'
+                  stagger={0.03}
+                  containerClassName='inline-block'
+                  textClassName='!text-sm md:!text-lg text-red-500 !leading-relaxed'
+                >
+                  Towards Advance Level Of Science
+                </ScrollFloat>
+                <ScrollFloat
+                  as="span"
+                  animationDuration={1}
+                  ease='back.inOut(2)'
+                  scrollStart='center bottom+=50%'
+                  scrollEnd='bottom bottom-=40%'
+                  stagger={0.01}
+                  containerClassName='inline'
+                  textClassName='!text-sm md:!text-lg text-gray-300 !leading-relaxed text-left'
+                >
+                  is an annual occurrence conducted by the Department of Artificial Intelligence and Data Science to showcase the importance of the domain. A wave of fun and technical events will be conducted throughout the day.
+                </ScrollFloat>
+              </div>
             </motion.div>
           </div>
 
