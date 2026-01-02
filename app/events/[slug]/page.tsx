@@ -1,16 +1,23 @@
 import PageSection from '@/components/_core/layout/PageSection';
 import Link from 'next/link';
+import { CardBody, CardContainer, CardItem } from '@/components/ui/3d-card';
 
 export default async function EventDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   return (
     <PageSection title='Event Details' className='min-h-screen'>
       <div className='max-w-4xl mx-auto'>
-        <div className='h-64 bg-gradient-to-r from-red-900 to-black rounded-xl mb-8 flex items-end p-8 border border-white/10'>
-          <h1 className='text-4xl md:text-6xl font-black text-white tracking-tighter'>
-             EVENT NAME
-          </h1>
-        </div>
+        <CardContainer className='w-full py-10'>
+          <CardBody className='w-full h-auto'>
+            <CardItem translateZ='100' className='w-full'>
+              <div className='h-64 bg-gradient-to-r from-red-900 to-black rounded-xl flex items-end p-8 border border-white/10 shadow-2xl shadow-red-500/10'>
+                <h1 className='text-4xl md:text-6xl font-black text-white tracking-tighter'>
+                  EVENT NAME
+                </h1>
+              </div>
+            </CardItem>
+          </CardBody>
+        </CardContainer>
         
         <div className='grid md:grid-cols-3 gap-8'>
            <div className='md:col-span-2 space-y-8'>

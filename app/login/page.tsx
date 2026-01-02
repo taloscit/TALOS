@@ -6,6 +6,11 @@ import PageSection from '@/components/_core/layout/PageSection';
 
 export default function LoginPage() {
   const handleLogin = async () => {
+    if (!auth) {
+      console.error("Firebase auth is not initialized. Please check your environment variables.");
+      alert("Login is currently unavailable. Please contact support.");
+      return;
+    }
     try {
       await signInWithPopup(auth, googleProvider);
       window.location.href = '/'; // Redirect after login
